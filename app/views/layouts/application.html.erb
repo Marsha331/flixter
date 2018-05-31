@@ -16,7 +16,7 @@
     </button>
   
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="#">Flixter</a>
+      <%= link_to 'Flixter', root_path, class:'navbar-brand' %>
     </div>
     
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
@@ -24,6 +24,20 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
       </li>
+    </ul>
+     <ul class="navbar-nav">
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'Sign out', destoy_user_session_path, class: 'nav-link' %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>
