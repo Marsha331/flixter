@@ -29,7 +29,7 @@
      <ul class="navbar-nav">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to 'Sign out', destoy_user_session_path, class: 'nav-link' %>
+          <%= link_to 'Sign out', destroy_user_session_path, class: 'nav-link' %>
         </li>
       <% else %>
         <li class="nav-item">
@@ -55,9 +55,9 @@
 
   <div id="footer">
     <div class="container">
-      <b>Footer Here</b>
+      <b>Teachers</b>
       <br />
-      <%= link_to 'Link', '#' %>
+      <%= link_to 'Teach a Course', new_instructor_course_path %>
     </div>
   </div>
   </body>
