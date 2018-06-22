@@ -1,5 +1,10 @@
 class LessonsController < ApplicationController
+  before_action :authenticate_user!
+
   def show
+    if ! current_user.enrolled_in?(current_lesson.section.course) 
+      redirect_to course_path(current_lesson.section.course) , alert: 'You are not enrolled in this lesson!' 
+    end
   end
 
   private
@@ -8,4 +13,5 @@ class LessonsController < ApplicationController
   def current_lesson
     @current_lesson ||= Lesson.find(params[:id])
   end
+
 end
